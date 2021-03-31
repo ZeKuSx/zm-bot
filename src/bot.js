@@ -1,22 +1,26 @@
 require('dotenv').config();
-const { Client } = require('discord.js')
-const client = new Client();
+const  Discord  = require('discord.js')
+const command = require('./command');
+const client = new Discord.Client();
 const PREFIX = "zm.";
+
 client.login(process.env.BOT_TOKEN);
 
 
 
 client.on('ready', () =>{ 
-    console.log('ZeKuS Modification bot is now online!')})
-    client.user.setActivity('ZeKuS Modification | ZM', {type: 'PLAYING'}).catch(console.error);
+    console.log('ZeKuS Modification bot is now online!');
+    client.user.setActivity('ZeKuS Modification | ZM', {type: 'PLAYING'}).catch(console.error)});
 
-    const command = require('./command')
 
-client.on('message', async message => {
+   
+
+  client.on('message', async message => {
     if(message.author.bot) return;
-    if(message.channel.id === '823572228011589682'){
-        await message.delete();
-    }
+    if(message.channel.id === '823572228011589682')
+    
+            await message.delete();
+        
     if(message.content.toLowerCase() === 'zm.verify' && message.channel.id === '823572228011589682')
     {
         await message.delete().catch(err => console.log(err));
@@ -36,7 +40,7 @@ client.on('message', async message => {
 
 
 
-command(client, 'embed', (message)=>{
+    command(client, 'embed', (message)=>{
     const embed = new Discord.MessageEmbed()
  
 
