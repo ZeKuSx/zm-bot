@@ -66,9 +66,9 @@ command(client, 'ban', message =>{
      ){
       const target = mentions.users.first()
       if(target){
-        const targetMember = message.guild.member.cache.get(target.id)
+        const targetMember = message.guild.members.cache.get(target.id)
         targetMember.ban()
-        message.channel.send(`${tag} That has been banned.`)
+        message.channel.send(`${tag} That user has been banned.`)
       }else {
           message.channel.send(`<@${member.id}> **Please specify someone to ban.**`)
       }
