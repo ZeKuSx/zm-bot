@@ -59,7 +59,7 @@ command(client, 'ban', message =>{
 
     const {member, mentions} = message
 
-    const tag = `<@${member.id}`
+    const tag = `<@${member.id}>`
 
     if(member.hasPermission('ADMINISTRATOR')||
     member.hasPermission('BAN_MEMBERS')
@@ -70,7 +70,7 @@ command(client, 'ban', message =>{
         targetMember.ban()
         message.channel.send(`${tag} That has been banned.`)
       }else {
-          message.channel.send(`<@${member.id} **Please specify someone to ban.**`)
+          message.channel.send(`<@${member.id}> **Please specify someone to ban.**`)
       }
           
      } else {
