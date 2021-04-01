@@ -13,7 +13,7 @@ client.on('ready', () =>{
     client.user.setActivity('ZeKuS Modification | ZM', {type: 'PLAYING'}).catch(console.error)});
 
 
-   
+   //verify 
 
   client.on('message', async message => {
     if(message.author.bot) return;
@@ -38,7 +38,7 @@ client.on('ready', () =>{
     }
 });
 
-
+// rules
 
     command(client, 'embed', (message)=>{
     const embed = new Discord.MessageEmbed()
@@ -51,6 +51,26 @@ client.on('ready', () =>{
 .setFooter('ZeKuS Modification | ZM');
 message.channel.send(embed)
 })  
+
+
+//ban
+
+command(client, 'ban', message =>{
+
+    const {member, mentions} = message
+
+    if(member.hasPermission('ADMINISTRATOR')||
+    member.hasPermission('BAN_MEMBERS')
+     ){
+        console.log('works')
+     } else {
+         message.channel.send(`**<@${member.id}> You do not have permission to use this command.**`)
+     }
+})
+
+
+
+
 
 
 
