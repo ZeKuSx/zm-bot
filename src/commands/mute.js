@@ -21,7 +21,7 @@ module.exports = {
         const muteEmbed = new Discord.MessageEmbed()
         .setTitle(`${target.user.username} has been muted`)
         .setDescription(`**Reason**: ${reason}
-        **Staff Member**: ${client.user.tag} `)
+        **Staff Member**: *${message.member.user.username}* `)
         .setColor("#304281")
         .setFooter(client.user.tag, client.user.displayAvatarURL());
 
@@ -37,7 +37,7 @@ module.exports = {
             .setTitle(`${target.user.username} has been muted for ${args[1]}`)
             .setDescription(`**Reason**: ${reason}
             **Time**: ${args[1]}
-            **Staff Member**: ${client.user.tag} `)
+            **Staff Member**: *${message.member.user.username}* `)
             .setColor("#304281")
             .setFooter(client.user.tag, client.user.displayAvatarURL());
     
@@ -54,6 +54,9 @@ module.exports = {
             message.channel.send(`**Cant find that user!** \`-zm.mute person reason \``)
         }
         console.log(ms(args[1]));
+
+
+        
     }
 }
 
