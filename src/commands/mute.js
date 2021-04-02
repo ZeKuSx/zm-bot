@@ -5,6 +5,9 @@ module.exports = {
     name: 'mute',
     description: 'mute',
     async execute(client, message, args){  
+
+        await message.delete();
+        
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot use this command.");
         const target = message.mentions.members.first();
 

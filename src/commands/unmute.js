@@ -22,7 +22,7 @@ module.exports = {
         const unmuteEmbed = new Discord.MessageEmbed()
         .setTitle(`${target.user.username} has been unmuted`)
         .setDescription(`**Reason**: ${reason}
-        **Staff Member**: ${client.user.tag} `)
+        **Staff Member**: ${message.member.user.username} `)
         .setColor("#304281")
         .setFooter(client.user.tag, client.user.displayAvatarURL());
 

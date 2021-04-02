@@ -4,6 +4,7 @@ module.exports = {
     name: 'kick',
     description: 'kick',
     async execute(client, message, args){
+        await message.delete();
         if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You cannot use this command.");
         const mentionedMember = message.mentions.members.first();
         let reason = args.slice(1).join(" ");
