@@ -10,7 +10,8 @@ module.exports = {
         if (!reason) reason = "No reason given";
         const kickEmbed = new Discord.MessageEmbed()
         .setTitle(`You were kicked from ${message.guild.name}`)
-        .setDescription(`Reason ${reason}`)
+        .setDescription(`**Reason**: ${reason}
+        **Staff Member**: -ZeKuS`)
         .setColor("#304281")
         .setFooter(client.user.tag, client.user.displayAvatarURL());
     
