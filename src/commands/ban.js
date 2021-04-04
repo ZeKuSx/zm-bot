@@ -6,6 +6,8 @@ module.exports = {
     async execute(client, message){
         const {member, mentions} = message
 
+        await message.delete();
+
         const tag = `<@${member.id}>`
     
         if(member.hasPermission('ADMINISTRATOR')||
@@ -17,7 +19,7 @@ module.exports = {
             targetMember.ban()
             message.channel.send(`${tag} That user has been banned.`)
           }else {
-              message.channel.send(`<@${member.id}> **Please specify someone to ban.**`)
+              message.channel.send(`<@${member.id}> **You need to mention a member \`- zm.ban @user reason\`**`)
           }
               
          } else {

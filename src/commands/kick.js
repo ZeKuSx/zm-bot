@@ -4,14 +4,18 @@ module.exports = {
     name: 'kick',
     description: 'kick',
     async execute(client, message, args){
+
         await message.delete();
+        
         if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You cannot use this command.");
         const mentionedMember = message.mentions.members.first();
+        if (message.mentions.members.size <= 0) return message.channel.send(`You need to mention a member \`- zm.kick @user reason\``);
         let reason = args.slice(1).join(" ");
         if (!reason) reason = "No reason given";
+
         //sss
         const kickEmbed = new Discord.MessageEmbed()
-        .setTitle(`${mentionedMember.user.username} were kicked from ${message.guild.name}`)
+        .setTitle(`${mentionedMember.user.username} was kicked from ${message.guild.name}`)
         .setDescription(`**Reason**: ${reason}
         **Staff Member**: *${message.member.user.username}*`)
         .setColor("#304281")
@@ -25,8 +29,8 @@ module.exports = {
         .setFooter(client.user.tag, client.user.displayAvatarURL());
 
          //-kick @user dm ads
-      
-         if(!args[0]) return message.channel.send("You need to state a user to kick. \`zm.kick @user reason\`");
+   
+ 
          if(!mentionedMember) return message.channel.send("The member mentioned isn't in the server.");
          try {
             
@@ -47,5 +51,7 @@ module.exports = {
              console.log(err);
              message.channel.send('I was unable to kick the member mentioned.')
          }
+         console.log(mentionedMember);
+
     }
 }
