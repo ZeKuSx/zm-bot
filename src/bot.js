@@ -53,7 +53,7 @@ client.on('ready', () =>{
         if (!client.commands.has(cmd)) return;
 
         try{
-            client.commands.get(cmd).execute(client, message, args);
+            client.commands.get(cmd).execute(client, message, args, cmd);
         } catch (error){
             console.error(error);
             message.reply('there was an error trying to execute that command!');
