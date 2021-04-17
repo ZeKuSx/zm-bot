@@ -6,6 +6,7 @@ const { error } = require('console');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const PREFIX = "zm.";
+const keepAlive = require('./server.js');
 
 
 (async () => {
@@ -18,7 +19,7 @@ const PREFIX = "zm.";
     }
 
 
-
+    keepAlive();
     client.login(process.env.BOT_TOKEN);
 })()
 
